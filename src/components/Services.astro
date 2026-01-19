@@ -1,0 +1,69 @@
+---
+interface Service {
+    title: string;
+    description: string;
+    imageSrc: string;
+    altText: string;
+}
+
+const services: Service[] = [
+    {
+        title: "Sesiones de Fotos",
+        description: "Ofrecemos sesiones de retratos para individuos y grupos, ideales para perfiles profesionales y personales.",
+        imageSrc: "/img-portfolio/foto-4.webp",
+        altText: "Persona posando para un retrato"
+    },
+    {
+        title: "Cumpleaños",
+        description: "Capturamos los momentos más importantes de tus eventos especiales con profesionalismo y creatividad.",
+        imageSrc: "/img-portfolio/foto-8.webp",
+        altText: "Cámara capturando un evento"
+    },
+    {
+        title: "Fiesta de XV",
+        description: "Inmortalizamos cada momento de esta celebración única, desde la preparación hasta el vals, capturando la magia de tus quince años.",
+        imageSrc: "/img-portfolio/foto-5.webp",
+        altText: "Persona posando para un retrato"
+    },
+    {
+        title: "Bodas",
+        description: "Capturamos cada detalle de tu día especial, desde la ceremonia hasta la recepción, creando recuerdos eternos de tu historia de amor.",
+        imageSrc: "/img-portfolio/foto-2.webp",
+        altText: "Producto fotografiado en estudio"
+    },
+    {
+        title: "Bautismos",
+        description: "Documentamos este sacramento especial con delicadeza y sensibilidad, preservando los momentos más emotivos de esta celebración religiosa.",
+        imageSrc: "/img-portfolio/foto-12.webp",
+        altText: "Personas en un evento corporativo"
+    },
+    {
+        title: "Eventos Infantiles",
+        description: "Capturamos la alegría y espontaneidad de los más pequeños en sus fiestas y celebraciones, creando recuerdos llenos de diversión.",
+        imageSrc: "/img-portfolio/foto-11.webp",
+        altText: "Persona posando para un retrato"
+    },
+    {
+        title: "Eventos Especiales",
+        description: "Fotografiamos todo tipo de celebraciones y eventos únicos, adaptándonos a tus necesidades para capturar momentos inolvidables.",
+        imageSrc: "/img-portfolio/foto-17.webp",
+        altText: "Producto fotografiado en estudio" 
+    }]
+---
+
+<section class="bg-(--secondary-color) p-8 text-center flex flex-col gap-4">
+    <h3 class="text-(--primary-color) uppercase">Servicios</h3>
+    <h2 class="text-(--accent-color) text-2xl">Capturar la esencia del momento a través de una infinitud.</h2>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto mt-12">
+        {services.map((service: Service) => (
+            <div class="flex flex-col items-center text-center">
+                <div class="w-40 h-40 md:w-48 md:h-48 rounded-full overflow-hidden mb-6 border-4 border-gray-700">
+                    <img src={service.imageSrc} alt={service.altText} class="w-full h-full object-cover" />
+                </div>
+                <h3 class="text-xl font-semibold mb-4 text-white">{service.title}</h3>
+                <p class="text-gray-300 text-sm leading-relaxed px-4">{service.description}</p>
+            </div>
+        ))}
+    </div>
+</section>
