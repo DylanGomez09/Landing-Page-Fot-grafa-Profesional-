@@ -95,7 +95,7 @@ const portfolioResto = portfolio.slice(5);
       {
         portfolioInicial.map((image) => (
           <div
-            class={`overflow-hidden rounded-xs group aspect-[3/4] md:aspect-auto
+            class={`overflow-hidden rounded-xs group aspect-[4/5] md:aspect-auto
             ${image.colSpan === 2 ? "md:col-span-2" : "md:col-span-1"}
             ${image.rowSpan === 4 ? "md:row-span-4" : "md:row-span-2"}
           `}
@@ -126,7 +126,7 @@ const portfolioResto = portfolio.slice(5);
       {
         portfolioResto.map((image) => (
           <div
-            class={`overflow-hidden rounded-xs group aspect-[3/4] md:aspect-auto
+            class={`overflow-hidden rounded-xs group aspect-[4/5] md:aspect-auto
             ${image.colSpan === 2 ? "md:col-span-2" : "md:col-span-1"}
             ${image.rowSpan === 4 ? "md:row-span-4" : image.rowSpan === 3 ? "md:row-span-3" : "md:row-span-2"}
             ${image.rowSpan === 2 ? "md:row-span-2" : "md:row-span-1"}

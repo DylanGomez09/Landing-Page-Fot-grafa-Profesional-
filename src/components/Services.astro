@@ -57,9 +57,9 @@ const services: Service[] = [
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto mt-12 [&>*:last-child]:lg:col-span-3 [&>*:last-child]:lg:max-w-md [&>*:last-child]:lg:mx-auto">
         {services.map((service: Service) => (
-            <div class="flex flex-col items-center text-center scroll-animate">
+            <div class="flex flex-col items-center text-center scroll-animate group">
                 <div class="w-40 h-40 md:w-48 md:h-48 rounded-full overflow-hidden mb-6 border-4 border-gray-700">
-                    <img src={service.imageSrc} alt={service.altText} class="w-full h-full object-cover" />
+                    <img src={service.imageSrc} alt={service.altText} class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
                 </div>
                 <h3 class="text-xl font-semibold mb-4 text-white">{service.title}</h3>
                 <p class="text-gray-300 text-sm leading-relaxed px-4">{service.description}</p>
