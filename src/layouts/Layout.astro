@@ -2,7 +2,60 @@
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    {/* SEO Meta Tags */}
+    <meta name="description" content="Yésica Fontealba - Fotógrafa profesional con +10 años de experiencia. Sesiones de fotos, bodas, eventos, cumpleaños y más. Buenos Aires, Argentina." />
+    <meta name="keywords" content="fotógrafa, fotos profesionales, sesión de fotos, bodas, eventos, Buenos Aires, Argentina" />
+    <meta name="author" content="Yésica Fontealba" />
+    <meta name="robots" content="index, follow" />
+    <meta name="language" content="es" />
+    <meta name="revisit-after" content="7 days" />
+    
+    {/* Open Graph Tags */}
+    <meta property="og:title" content="Yésica Fontealba | Fotógrafa Profesional" />
+    <meta property="og:description" content="Captura momentos únicos con pasión y profesionalismo. +10 años de experiencia en fotografía." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://yesicafontealba.com/og-image.jpg" />
+    <meta property="og:url" content="https://yesicafontealba.com" />
+    <meta property="og:site_name" content="Yésica Fontealba - Fotógrafa Profesional" />
+    
+    {/* Twitter Card Tags */}
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Yésica Fontealba | Fotógrafa Profesional" />
+    <meta name="twitter:description" content="Captura momentos únicos con pasión y profesionalismo. +10 años de experiencia." />
+    <meta name="twitter:image" content="YF-branch.jpeg" />
+    
+    {/* Canonical URL */}
+    <link rel="canonical" href="https://yesicafontealba.com" />
+    
+    {/* Structured Data (Schema.org) */}
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Yésica Fontealba - Fotógrafa Profesional",
+      "description": "Fotógrafa profesional con +10 años de experiencia",
+      "url": "https://yesicafontealba.com",
+      "telephone": "+54-1234567890",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Buenos Aires",
+        "addressCountry": "AR"
+      },
+      "image": "YF-branch.jpeg",
+      "priceRange": "$$",
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+          "opens": "09:00",
+          "closes": "18:00"
+        }
+      ]
+    }
+    </script>
+    
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -15,11 +68,9 @@
       href="https://fonts.googleapis.com/css2?family=Lexend+Exa:wght@100..900&family=Parisienne&display=swap"
       rel="stylesheet"
     />
-    <link rel="icon" type="image/svg+xml" href="" />
+    <link rel="icon" type="image/jpeg" href="/YF-branch.jpeg" />
     <meta name="generator" content={Astro.generator} />
-    <title>
-      Yésica Fuentealba | Fotógrafa Profesional | +10 Años De Experiencia
-    </title>
+    <title>Yésica Fontealba | Fotógrafa Profesional | +10 Años De Experiencia</title>
   </head>
   <body>
     <slot />
