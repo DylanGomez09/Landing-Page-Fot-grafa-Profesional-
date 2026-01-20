@@ -1,4 +1,4 @@
-<nav class="bg-transparent p-5 flex justify-between items-center">
+<nav id="navbar" class="sticky top-0 left-0 right-0 bg-transparent p-6 flex justify-between items-center relative transition-all duration-300 z-[100]">
   <h5 class="font-medium text-xl text-black">YF</h5>
 
   {/* Botón hamburguesa mobile */}
@@ -46,17 +46,10 @@
     </li>
   </ul>
 
-  {/* Overlay oscuro */}
-  <div
-    id="menu-overlay"
-    class="fixed inset-0 bg-black/50 z-[45] opacity-0 pointer-events-none transition-opacity duration-300 md:hidden"
-  >
-  </div>
-
-  {/* Menú mobile desde el costado */}
+  {/* Menú mobile dropdown */}
   <ul
     id="mobile-menu"
-    class="fixed top-0 right-0 h-full w-64 bg-red-500 flex flex-col gap-8 p-8 pt-20 transition-transform duration-300 transform translate-x-full z-[55] shadow-2xl"
+    class="text-end absolute top-full left-0 right-0 bg-(--accent-color) flex-col gap-6 p-6 md:hidden shadow-lg z-50 max-h-0 overflow-hidden opacity-0"
   >
     <li>
       <a href="#home" class="hover:opacity-80 transition block text-lg text-black font-medium">Inicio</a>
@@ -78,50 +71,53 @@
 
 <style>
   #mobile-menu {
-    transition: transform 300ms ease-in-out;
+    transition: max-height 500ms ease-in-out, opacity 400ms ease-in-out, padding 400ms ease-in-out;
+    display: flex;
   }
-
+  
   #mobile-menu.visible {
-    transform: translateX(0);
+    max-height: 500px;
+    opacity: 1;
   }
 
-  #menu-overlay.visible {
-    opacity: 1;
-    pointer-events: auto;
+  #navbar.scrolled {
+    background-color: var(--accent-color);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   }
 </style>
 
-<script>
-  const menuToggle = document.getElementById("menu-toggle");
-  const mobileMenu = document.getElementById("mobile-menu");
-  const menuOverlay = document.getElementById("menu-overlay");
-  const menuIcon = document.getElementById("menu-icon");
-  const closeIcon = document.getElementById("close-icon");
-  const navLinks = mobileMenu?.querySelectorAll("a");
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', () => {
+    const navbar = document.getElementById("navbar");
+    const menuToggle = document.getElementById("menu-toggle");
+    const mobileMenu = document.getElementById("mobile-menu");
+    const menuIcon = document.getElementById("menu-icon");
+    const closeIcon = document.getElementById("close-icon");
+    const navLinks = mobileMenu?.querySelectorAll("a");
 
-  // Toggle menú
-  menuToggle?.addEventListener("click", () => {
-    mobileMenu?.classList.toggle("visible");
-    menuOverlay?.classList.toggle("visible");
-    menuIcon?.classList.toggle("hidden");
-    closeIcon?.classList.toggle("hidden");
-  });
+    // Cambiar color del navbar al hacer scroll
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 100) {
+        navbar?.classList.add('scrolled');
+      } else {
+        navbar?.classList.remove('scrolled');
+      }
+    });
 
-  // Cerrar menú al hacer clic en el overlay
-  menuOverlay?.addEventListener("click", () => {
-    mobileMenu?.classList.remove("visible");
-    menuOverlay?.classList.remove("visible");
-    menuIcon?.classList.remove("hidden");
-    closeIcon?.classList.add("hidden");
-  });
+    // Toggle menú
+    menuToggle?.addEventListener("click", () => {
+      mobileMenu?.classList.toggle("visible");
+      menuIcon?.classList.toggle("hidden");
+      closeIcon?.classList.toggle("hidden");
+    });
 
-  // Cerrar menú al hacer clic en un enlace
-  navLinks?.forEach((link) => {
-    link.addEventListener("click", () => {
-      mobileMenu?.classList.remove("visible");
-      menuOverlay?.classList.remove("visible");
-      menuIcon?.classList.remove("hidden");
-      closeIcon?.classList.add("hidden");
+    // Cerrar menú al hacer clic en un enlace
+    navLinks?.forEach((link) => {
+      link.addEventListener("click", () => {
+        mobileMenu?.classList.remove("visible");
+        menuIcon?.classList.remove("hidden");
+        closeIcon?.classList.add("hidden");
+      });
     });
   });
 </script>
