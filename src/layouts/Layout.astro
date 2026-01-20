@@ -23,5 +23,40 @@
   </head>
   <body>
     <slot />
+    
+    <style is:global>
+      .scroll-animate {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+      }
+
+      .scroll-animate.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    </style>
+
+    <script>
+      // Intersection Observer para animaciones al scroll
+      const observerOptions = {
+        threshold: 0.2,
+        rootMargin: '0px 0px -100px 0px'
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, observerOptions);
+
+      // Observar todos los elementos con la clase scroll-animate
+      document.addEventListener('DOMContentLoaded', () => {
+        const animatedElements = document.querySelectorAll('.scroll-animate');
+        animatedElements.forEach(el => observer.observe(el));
+      });
+    </script>
   </body>
 </html>

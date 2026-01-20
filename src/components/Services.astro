@@ -51,13 +51,13 @@ const services: Service[] = [
     }]
 ---
 
-<section class="bg-(--secondary-color) p-8 text-center flex flex-col gap-4">
-    <h3 class="text-(--primary-color) uppercase">Servicios</h3>
-    <h2 class="text-(--accent-color) text-2xl">Capturar la esencia del momento a través de una infinitud.</h2>
+<section class="bg-(--secondary-color) p-8 text-center flex flex-col gap-4" id="services">
+    <h3 class="text-(--primary-color) uppercase scroll-animate">Servicios</h3>
+    <h2 class="text-(--accent-color) text-2xl scroll-animate">Capturar la esencia del momento a través de una infinitud.</h2>
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto mt-12">
         {services.map((service: Service) => (
-            <div class="flex flex-col items-center text-center">
+            <div class="flex flex-col items-center text-center scroll-animate">
                 <div class="w-40 h-40 md:w-48 md:h-48 rounded-full overflow-hidden mb-6 border-4 border-gray-700">
                     <img src={service.imageSrc} alt={service.altText} class="w-full h-full object-cover" />
                 </div>
