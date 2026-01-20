@@ -11,7 +11,7 @@
       id="menu-icon"
       xmlns="http://www.w3.org/2000/svg"
       fill="currentColor"
-      class="text-(--secondary-color) w-8 h-8 transition-all duration-300"
+      class="text-black w-8 h-8 transition-all duration-300"
       viewBox="0 0 16 16"
     >
       <path
@@ -23,7 +23,7 @@
       id="close-icon"
       xmlns="http://www.w3.org/2000/svg"
       fill="currentColor"
-      class="hidden text-(--secondary-color) w-8 h-8 transition-all duration-300"
+      class="hidden text-black w-8 h-8 transition-all duration-300"
       viewBox="0 0 16 16"
     >
       <path
@@ -46,37 +46,47 @@
     </li>
   </ul>
 
-  {/* Menú mobile */}
+  {/* Overlay oscuro */}
+  <div
+    id="menu-overlay"
+    class="fixed inset-0 bg-black/50 z-[45] opacity-0 pointer-events-none transition-opacity duration-300 md:hidden"
+  >
+  </div>
+
+  {/* Menú mobile desde el costado */}
   <ul
     id="mobile-menu"
-    class="absolute top-16 left-0 right-0 bg-(--accent-color) flex flex-col text-center gap-6 p-4 md:hidden transition-all duration-300 scale-y-0 origin-top opacity-0 pointer-events-none"
+    class="fixed top-0 right-0 h-full w-64 bg-red-500 flex flex-col gap-8 p-8 pt-20 transition-transform duration-300 transform translate-x-full z-[55] shadow-2xl"
   >
     <li>
-      <a href="#home" class="hover:opacity-80 transition block">Inicio</a>
+      <a href="#home" class="hover:opacity-80 transition block text-lg text-black font-medium">Inicio</a>
     </li>
     <li>
-      <a href="#portfolio" class="hover:opacity-80 transition block"
+      <a href="#portfolio" class="hover:opacity-80 transition block text-lg text-black font-medium"
         >Portafolio</a
       >
     </li>
     <li>
-      <a href="#services" class="hover:opacity-80 transition block">Servicios</a
+      <a href="#services" class="hover:opacity-80 transition block text-lg text-black font-medium">Servicios</a
       >
     </li>
     <li>
-      <a href="#contacto" class="hover:opacity-80 transition block">Contacto</a>
+      <a href="#contacto" class="hover:opacity-80 transition block text-lg text-black font-medium">Contacto</a>
     </li>
   </ul>
 </nav>
 
 <style>
   #mobile-menu {
-    transition: all 300ms ease-in-out;
+    transition: transform 300ms ease-in-out;
   }
 
   #mobile-menu.visible {
+    transform: translateX(0);
+  }
+
+  #menu-overlay.visible {
     opacity: 1;
-    scale: 1;
     pointer-events: auto;
   }
 </style>
@@ -84,6 +94,7 @@
 <script>
   const menuToggle = document.getElementById("menu-toggle");
   const mobileMenu = document.getElementById("mobile-menu");
+  const menuOverlay = document.getElementById("menu-overlay");
   const menuIcon = document.getElementById("menu-icon");
   const closeIcon = document.getElementById("close-icon");
   const navLinks = mobileMenu?.querySelectorAll("a");
@@ -91,14 +102,24 @@
   // Toggle menú
   menuToggle?.addEventListener("click", () => {
     mobileMenu?.classList.toggle("visible");
+    menuOverlay?.classList.toggle("visible");
     menuIcon?.classList.toggle("hidden");
     closeIcon?.classList.toggle("hidden");
+  });
+
+  // Cerrar menú al hacer clic en el overlay
+  menuOverlay?.addEventListener("click", () => {
+    mobileMenu?.classList.remove("visible");
+    menuOverlay?.classList.remove("visible");
+    menuIcon?.classList.remove("hidden");
+    closeIcon?.classList.add("hidden");
   });
 
   // Cerrar menú al hacer clic en un enlace
   navLinks?.forEach((link) => {
     link.addEventListener("click", () => {
       mobileMenu?.classList.remove("visible");
+      menuOverlay?.classList.remove("visible");
       menuIcon?.classList.remove("hidden");
       closeIcon?.classList.add("hidden");
     });
