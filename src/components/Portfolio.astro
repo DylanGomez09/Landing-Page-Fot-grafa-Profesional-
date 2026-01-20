@@ -1,87 +1,150 @@
 ---
 const portfolio = [
-  { src: "/img-portfolio/foto-1.webp", alt: "Foto 1", colSpan: 2, rowSpan: 2 },
-  { src: "/img-portfolio/foto-2.webp", alt: "Foto 2", colSpan: 2, rowSpan: 1 },
-  { src: "/img-portfolio/foto-3.webp", alt: "Foto 3", colSpan: 1, rowSpan: 1 },
-  { src: "/img-portfolio/foto-4.webp", alt: "Foto 4", colSpan: 1, rowSpan: 1 },
-  { src: "/img-portfolio/foto-5.webp", alt: "Foto 5", colSpan: 2, rowSpan: 1 },
-  { src: "/img-portfolio/foto-6.webp", alt: "Foto 6", colSpan: 1, rowSpan: 1 },
-  { src: "/img-portfolio/foto-7.webp", alt: "Foto 7", colSpan: 2, rowSpan: 2 },
+  {
+    src: "/img-portfolio/foto-1.webp",
+    alt: "Profesional",
+    colSpan: 1,
+    rowSpan: 2,
+  }, // Izquierda arriba
+  {
+    src: "/img-portfolio/foto-2.webp",
+    alt: "Quinceañera",
+    colSpan: 2,
+    rowSpan: 2,
+  }, // Centro arriba
+  { src: "/img-portfolio/foto-3.webp", alt: "Boda", colSpan: 1, rowSpan: 4 }, // Derecha (Toda la altura)
+  { src: "/img-portfolio/foto-4.webp", alt: "Porsche", colSpan: 2, rowSpan: 2 }, // Centro abajo
+  { src: "/img-portfolio/foto-5.webp", alt: "Evento", colSpan: 1, rowSpan: 2 },
+  { src: "/img-portfolio/foto-6.webp", alt: "Foto 6", colSpan: 4, rowSpan: 2 },
+  { src: "/img-portfolio/foto-7.webp", alt: "Foto 7", colSpan: 4, rowSpan: 2 },
   { src: "/img-portfolio/foto-8.webp", alt: "Foto 8", colSpan: 1, rowSpan: 1 },
   { src: "/img-portfolio/foto-9.webp", alt: "Foto 9", colSpan: 1, rowSpan: 1 },
-  { src: "/img-portfolio/foto-10.webp", alt: "Foto 10", colSpan: 2, rowSpan: 1 },
-  { src: "/img-portfolio/foto-11.webp", alt: "Foto 11", colSpan: 2, rowSpan: 2 },
-  { src: "/img-portfolio/foto-12.webp", alt: "Foto 12", colSpan: 1, rowSpan: 1 },
-  { src: "/img-portfolio/foto-13.webp", alt: "Foto 13", colSpan: 1, rowSpan: 1 },
-  { src: "/img-portfolio/foto-14.webp", alt: "Foto 14", colSpan: 2, rowSpan: 1 },
-  { src: "/img-portfolio/foto-15.webp", alt: "Foto 15", colSpan: 1, rowSpan: 1 },
-  { src: "/img-portfolio/foto-16.webp", alt: "Foto 16", colSpan: 1, rowSpan: 1 },
-  { src: "/img-portfolio/foto-17.webp", alt: "Foto 17", colSpan: 2, rowSpan: 2 },
-  { src: "/img-portfolio/foto-18.webp", alt: "Foto 18", colSpan: 2, rowSpan: 1 },
+  {
+    src: "/img-portfolio/foto-10.webp",
+    alt: "Foto 10",
+    colSpan: 2,
+    rowSpan: 2, // Aumentado a 2 para que no se corte
+  },
+  {
+    src: "/img-portfolio/foto-11.webp",
+    alt: "Foto 11",
+    colSpan: 2,
+    rowSpan: 3, // Foto principal vertical/grande
+  },
+  {
+    src: "/img-portfolio/foto-12.webp",
+    alt: "Foto 12",
+    colSpan: 1,
+    rowSpan: 2,
+  },
+  {
+    src: "/img-portfolio/foto-13.webp",
+    alt: "Foto 13",
+    colSpan: 1,
+    rowSpan: 2,
+  },
+  {
+    src: "/img-portfolio/foto-14.webp",
+    alt: "Foto 14",
+    colSpan: 2,
+    rowSpan: 2,
+  },
+  {
+    src: "/img-portfolio/foto-15.webp",
+    alt: "Foto 15",
+    colSpan: 1,
+    rowSpan: 2,
+  },
+  {
+    src: "/img-portfolio/foto-16.webp",
+    alt: "Foto 16",
+    colSpan: 1,
+    rowSpan: 2,
+  },
+  {
+    src: "/img-portfolio/foto-17.webp",
+    alt: "Foto 17",
+    colSpan: 2,
+    rowSpan: 3, // Foto destacada
+  },
+  {
+    src: "/img-portfolio/foto-18.webp",
+    alt: "Foto 18",
+    colSpan: 2,
+    rowSpan: 2,
+  },
 ];
 
 const portfolioInicial = portfolio.slice(0, 5);
 const portfolioResto = portfolio.slice(5);
 ---
 
-<section class="bg-(--accent-color) text-(--secondary-color) px-4 md:px-8 py-20" id="portfolio">
+<section
+  class="bg-(--accent-color) text-(--secondary-color) px-4 md:px-8 py-20"
+  id="portfolio"
+>
   <div class="max-w-6xl mx-auto">
-    <h2 class="text-black text-3xl md:text-4xl font-semibold text-center mb-12 scroll-animate">
-        Visión artística
+    <h2 class="text-black text-3xl md:text-4xl font-semibold text-center mb-4">
+      Visión artística
     </h2>
-    <p class="text-(--secondary-color) text-center mb-12 scroll-animate">Capturando momentos de tranquilidad y grandes emociones con un lente minimalista y elegante.</p>
-    
-    {/* Grid responsivo - Primeras 5 imágenes */}
-    <div class="grid gap-4 mb-8" style="grid-template-columns: 1fr; @media (min-width: 768px) { grid-template-columns: repeat(4, 1fr); }">
-      {portfolioInicial.map((image) => (
-        <div 
-          class="overflow-hidden rounded-l-xs"
-          style={`grid-column: span 1; grid-row: span 1; @media (min-width: 768px) { grid-column: span ${image.colSpan}; grid-row: span ${image.rowSpan}; }`}
-        >
-          <img 
-            src={image.src}
-            alt={image.alt}
-            class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
-          />
-        </div>
-      ))}
+    <p class="text-(--secondary-color) text-center mb-12">
+      Capturando momentos de tranquilidad y grandes emociones.
+    </p>
+
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8 md:auto-rows-[150px]">
+      {
+        portfolioInicial.map((image) => (
+          <div
+            class={`overflow-hidden rounded-xs group aspect-[3/4] md:aspect-auto
+            ${image.colSpan === 2 ? "md:col-span-2" : "md:col-span-1"}
+            ${image.rowSpan === 4 ? "md:row-span-4" : "md:row-span-2"}
+          `}
+          >
+            <img
+              src={image.src}
+              alt={image.alt}
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+            />
+          </div>
+        ))
+      }
     </div>
 
-    {/* Botón Ver Más */}
     <div id="btn-container" class="flex justify-center mb-12">
       <button
         id="load-more-btn"
-        class="text-(--secondary-color) border-2 border-solid border-(--secondary-color) px-8 py-3 font-normal hover:bg-(--secondary-color) hover:text-(--primary-color) transition-all duration-500"
+        class="border-2 border-solid border-(--secondary-color) px-8 py-3 hover:bg-(--secondary-color) hover:text-(--primary-color) transition-all duration-500"
       >
         Ver Más
       </button>
     </div>
 
-    {/* Grid responsivo - Imágenes restantes (ocultas inicialmente) */}
-    <div 
+    <div
       id="gallery-rest"
-      class="grid gap-4 hidden animate-fade-in-gallery"
-      style="grid-template-columns: 1fr; @media (min-width: 768px) { grid-template-columns: repeat(4, 1fr); }"
+      class="grid grid-cols-1 md:grid-cols-4 gap-4 hidden animate-fade-in-gallery md:auto-rows-[150px]"
     >
-      {portfolioResto.map((image) => (
-        <div 
-          class="overflow-hidden rounded-xs"
-          style={`grid-column: span 1; grid-row: span 1; @media (min-width: 768px) { grid-column: span ${image.colSpan}; grid-row: span ${image.rowSpan}; }`}
-        >
-          <img 
-            src={image.src}
-            alt={image.alt}
-            class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
-          />
-        </div>
-      ))}
+      {
+        portfolioResto.map((image) => (
+          <div
+            class={`overflow-hidden rounded-xs group aspect-[3/4] md:aspect-auto
+            ${image.colSpan === 2 ? "md:col-span-2" : "md:col-span-1"}
+            ${image.rowSpan === 4 ? "md:row-span-4" : image.rowSpan === 3 ? "md:row-span-3" : "md:row-span-2"}
+            ${image.rowSpan === 2 ? "md:row-span-2" : "md:row-span-1"}
+          `}
+          >
+            <img
+              src={image.src}
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+            />
+          </div>
+        ))
+      }
     </div>
 
-    {/* Contenedor para el botón Ver Menos */}
     <div id="btn-container-bottom" class="flex justify-center mt-12 hidden">
       <button
         id="load-less-btn"
-        class="text-(--secondary-color) border-2 border-solid border-(--secondary-color) px-8 py-3 font-normal hover:bg-(--secondary-color) hover:text-(--primary-color) transition-all duration-500"
+        class="border-2 border-solid border-(--secondary-color) px-8 py-3 hover:bg-(--secondary-color) hover:text-(--primary-color) transition-all duration-500"
       >
         Ver Menos
       </button>
@@ -140,15 +203,18 @@ const portfolioResto = portfolio.slice(5);
   loadLessBtn?.addEventListener("click", () => {
     isExpanded = false;
     galleryRest?.classList.add("animate-fade-out-gallery");
-    
+
     // Esperar a que termine la animación antes de ocultar
     setTimeout(() => {
       galleryRest?.classList.add("hidden");
-      galleryRest?.classList.remove("animate-fade-out-gallery", "animate-fade-in-gallery");
+      galleryRest?.classList.remove(
+        "animate-fade-out-gallery",
+        "animate-fade-in-gallery",
+      );
       btnContainerTop?.classList.remove("hidden");
       btnContainerBottom?.classList.add("hidden");
     }, 600);
-    
+
     // Scroll suave hacia arriba
     window.scrollTo({ top: 0, behavior: "smooth" });
   });
