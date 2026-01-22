@@ -31,7 +31,6 @@ La página está pensada para funcionar como carta de presentación online, idea
 - JavaScript  
 - Diseño responsive (mobile first)  
 
-*(Podés agregar Astro, React, Tailwind, Vercel, etc. si aplica)*
 
 ## ⚡ Características
 
@@ -58,3 +57,4 @@ El proyecto se encuentra desplegado y accesible online.
 
 Este proyecto fue desarrollado como trabajo profesional / portfolio personal.  
 El código puede ser reutilizado como referencia, respetando los derechos del contenido visual.
+
